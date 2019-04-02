@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="IMDB Enhancer" showOnExecute="false" startAsBackgroundTask="true" autoUpdate="true" enhancerClassName="com.lucanet.imdb.imdbenhancer.ASM.ASMEnhancer" enhancerLibraryFolderFromBase="libsandtools/build/imdb" srcFolder="src" srcTestFolder="test" rtFolder="rt" rtTestFolder="rt-test" userHome="$USER_HOME$" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
