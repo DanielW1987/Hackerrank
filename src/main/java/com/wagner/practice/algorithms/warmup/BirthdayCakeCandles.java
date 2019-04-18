@@ -1,4 +1,4 @@
-package practice.algorithms.warmup;
+package com.wagner.practice.algorithms.warmup;
 
 import java.util.Arrays;
 
@@ -6,11 +6,7 @@ import java.util.Arrays;
  * User: DanielW
  * Date: 28.03.2019
  * Time: 17:45
- * <p>
- * Copyright LucaNet AG
- * <p>
  */
-
 public class BirthdayCakeCandles {
 
   public static void main(String[] args) {

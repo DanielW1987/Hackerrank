@@ -1,4 +1,4 @@
-package practice.algorithms.warmup;
+package com.wagner.practice.algorithms.warmup;
 
 public class TimeConversion {
 
