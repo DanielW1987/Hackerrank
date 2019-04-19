@@ -2,13 +2,9 @@ package com.wagner.hackerrank.practice.algorithms.implementation;
 
 import com.wagner.shared.util.AlgorithmUtil;
 
-import java.util.stream.IntStream;
+import java.util.Arrays;
 
 public class AppleAndOrange {
-
-  public static void main(String[] args) {
-    countApplesAndOranges(7,11, 5, 15, new int[]{-2, 2, 1}, new int[]{5, -6});
-  }
 
   /*
    * s: integer, starting point of Sam's house location.
@@ -19,27 +15,18 @@ public class AppleAndOrange {
    * oranges: integer array, distances at which each orange falls from the tree.
    */
 
+  public static void main(String[] args) {
+    countApplesAndOranges(7,11, 5, 15, new int[]{-2, 2, 1}, new int[]{5, -6});
+  }
+
   static void countApplesAndOranges(int s, int t, int a, int b, int[] apples, int[] oranges) {
-    int[] appleLocations  = calculateFruitLocations(a, apples);
-    int[] orangeLocations = calculateFruitLocations(b, oranges);
-
-    System.out.println(calculateHits(s, t, appleLocations).length);
-    System.out.println(calculateHits(s, t, orangeLocations).length);
+    System.out.println(calculateHits(s, t, a, apples));
+    System.out.println(calculateHits(s, t, b, oranges));
   }
 
-  private static int[] calculateFruitLocations(int treeLocation, int[] fruitDistances) {
-    int[] result = new int[fruitDistances.length];
-    for (int index = 0; index < fruitDistances.length; index++) {
-      result[index] = treeLocation + fruitDistances[index];
-    }
-
-    return result;
+  private static long calculateHits(int startingPoint, int endingPoint, int treeLocation, int[] fruitDistance) {
+    return Arrays.stream(fruitDistance)
+                 .filter(distance -> AlgorithmUtil.isBetween(distance + treeLocation, startingPoint, endingPoint))
+                 .count();
   }
-
-  private static int[] calculateHits(int startingPoint, int endingPoint, int[] fruitLocations) {
-    return IntStream.of(fruitLocations)
-            .filter(v -> AlgorithmUtil.isBetween(v, startingPoint, endingPoint))
-            .toArray();
-  }
-
 }
