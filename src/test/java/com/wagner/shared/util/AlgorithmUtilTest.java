@@ -107,7 +107,7 @@ class AlgorithmUtilTest {
     long value = 1534231;
     int[] expectedResult = new int[]{1, 5, 3, 4, 2, 3, 1};
 
-    assertThat(AlgorithmUtil.longValueToIntArray(value)).isEqualTo(expectedResult);
+    assertThat(AlgorithmUtil.longValueToArray(value)).isEqualTo(expectedResult);
   }
 
   @Test

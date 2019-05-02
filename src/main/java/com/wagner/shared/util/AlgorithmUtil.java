@@ -31,12 +31,13 @@ public class AlgorithmUtil {
   }
 
   /**
-   *
-   * @param initialValue
-   * @return
+   * // ToDo DanielW: JavaDoc
+   * @param seed the seed
+   * @param multipleBase the multiple base
+   * @return the next multiple of a number starting from a given seed
    */
-  public static long nextMultipleOfNumber(long initialValue, long multipleBase) {
-    for (long value = initialValue;;value++) {
+  public static long nextMultipleOfNumber(long seed, long multipleBase) {
+    for (long value = seed;;value++) {
       if (isValueAMultipleOf(value, multipleBase)) {
         return value;
       }
@@ -99,10 +100,10 @@ public class AlgorithmUtil {
 
   /**
    * // ToDo DanielW: JavaDoc
-   * @param value
-   * @return
+   * @param value the value that should be transformed to an array
+   * @return the array of the value
    */
-  public static int[] longValueToIntArray(long value) {
+  public static int[] longValueToArray(long value) {
     long currentValue         = value;
     Deque<Integer> longValues = new ArrayDeque<>();
 
@@ -115,9 +116,9 @@ public class AlgorithmUtil {
   }
 
   /**
-   * // ToDo DanielW: JavaDoc
-   * @param array
-   * @return
+   * Reverses a given array.
+   * @param array array that should be reversed
+   * @return the reverted array
    */
   public static int[] reverseArray(int[] array) {
     int[] revertedArray = new int[array.length];
@@ -129,27 +130,34 @@ public class AlgorithmUtil {
   }
 
   /**
-   * // ToDo DanielW: JavaDoc
+   * Checks if the given number is a palindrome.
+   * Examples for palindrome numbers are:
+   * <ul>
+   *  <li>99</li>
+   *  <li>7557</li>
+   *  <li>111111</li>
+   * </ul>
+   * By definition, every number with only one digit is a palindrome.
    * @param value the long value to check
    * @return true if the long value is a palindrome, false otherwise
    */
   public static boolean isPalindromeNumber(long value) {
-    int[] valueAsIntArray       = longValueToIntArray(value);
+    int[] valueAsIntArray       = longValueToArray(value);
     int[] reversedValueIntArray = reverseArray(valueAsIntArray);
 
     return Arrays.equals(valueAsIntArray, reversedValueIntArray);
   }
 
   /**
-   * Checks whether a given value is between a specified start and end value.
+   * Checks whether a given value is between a specified range.
    * @param value the value to check
-   * @param lowerLimit the start value (inclusive)
-   * @param upperLimit the end value (inclusive)
-   * @return true, if the value is between start and end, false otherwise
+   * @param limitA the first value of the range (inclusive)
+   * @param limitB the second value of the range (inclusive)
+   * @return true, if the value is between the specified range, false otherwise
    */
-  public static boolean isBetween(long value, long lowerLimit, long upperLimit) {
-    long startValue = Math.min(lowerLimit, upperLimit);
-    long endValue   = Math.max(lowerLimit, upperLimit);
+  public static boolean isBetween(long value, long limitA, long limitB) {
+    long startValue = Math.min(limitA, limitB);
+    long endValue   = Math.max(limitA, limitB);
     return value >= startValue && value <= endValue;
   }
 

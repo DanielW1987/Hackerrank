@@ -1,5 +1,7 @@
 package com.wagner.hackerrank.practice.algorithms.misc;
 
+import com.wagner.shared.util.AlgorithmUtil;
+
 /**
  * User: DanielW
  * Date: 08.04.2019
@@ -13,7 +15,16 @@ public class NumberReversion {
       return value;
     }
 
-    return value;
+    long baseValue = Math.abs(value);
+    long reversedValue = 0;
+
+    while (baseValue > 0) {
+      int remainder = AlgorithmUtil.getLastDigit(baseValue);
+      reversedValue = reversedValue * 10 + remainder;
+      baseValue /= 10;
+    }
+
+    return value > 0 ? reversedValue : reversedValue * -1;
   }
 
 }
